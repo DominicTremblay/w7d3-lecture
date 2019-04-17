@@ -4,7 +4,7 @@
 
 - Started as a project at Basecamp
 
-- Developed by
+- Developed by David Heinemeier Hansson
 
 - Rails is composed of several libraries
 
@@ -37,20 +37,67 @@ A way to distribute distinct responsabilities of a web a app:
 - Vews -> Rendering of the UI with the data
 - Controllers -> respond to ressources
 
+#### Benefit
+
+The main advantage of MVC is clear separation of concerns. We can more easily maintain our application.
+
+#### Controllers
+
+- Controllers are getting request from the router and pulling data from the model and trigger the rendering of the view
+
+#### Models
+
+- Provide an interface in object form between the app and the database
+
+#### Views
+
+- The UI part of the app. Using ERB templates to render HTML.
+
 ### Convention over configurations
 
-#### rails command-line
+- If you follow the established conventions, you can develop a Rails application in much less time and with many fewer lines of code.
 
-- generate
-- console
-- new
-- api
-- server (s)
-- db
+- Freeing you up from all the small decisions
+
+### rails command-line
+
+- `rails g` - Allows you to generate components for your Rails application. You can generate models, controllers, views, migrations, mailers, etc.
+
+- `rails c` - This is your IRB console, with all of your dependencies loaded in so that you can test methods and queries from the CLI. If they don't work here, they're not going to work in your application.
+
+- `rails s` - This starts your server. You will need to restart the server if you change logic in models, controllers, but not views.
+
+- `rails db` - This will put you into the CLI for your database. For example, if you are using PostgreSQL, it would put you into psql.
+
+### Rake
+
+Rake is a task-runner utility for Rails. We can have a list of Rake commands with `Rake -T`
+
+- `rake routes` - This command gives you the output for what routes your app is configured for.
+
+- `rake db:reset` - Reset the database
+
+- `rake db:migrate` - running migration.
+
+- `rake db:version` - latest migration ran.
+
+- `rake db:rollback` - rollback migrations.
+
+- `rake secret` - generate a secret key
+
+### Generate A Rails App
+
+With Rails you can generate an entirely new project scaffold:
+
+`rails new myApp --database=postgresql -T --no-rdoc --no-ri`
+
+For creating a resource (quotes for example):
+
+`rails g scaffold Quote content:string`
 
 ### Jungle
 
-- First experience working with existing code
+- You first experience working with existing code. More often than not, you will have to work with an existing code base.
 
 #### Gemfile
 
@@ -66,12 +113,6 @@ rvm use 2.3.0
 bundle install
 ```
 
-#### Readme
-
-- config/database.yml
-- config/secrets.yml
-- .env
-
 #### Schema
 
 - schema.rb is a representation of the db
@@ -79,13 +120,7 @@ bundle install
 
   ** Rails has a lot of files. Use shortcuts such as CMD|CTRL-P **
 
-#### Demo of Jungle
-
-- Running the app
-
-`rails s -b 0.0.0.0`
-
-- Go through the logs
+=
 
 #### Router
 
@@ -112,25 +147,14 @@ bundle install
 | update            | Update a resource     | PUT /resources/:id        |
 | Destroy           | Delete a resource     | DELETE /resources/:id     |
 
-#### Controllers
+#### Debugging
 
-- Go over the controllers
+- debug variable in a view
 
-#### Models
+`<%= debug product %>`
 
-- Go over the models
-
-#### Views
-
-- Go over the views
-  - layout
-  - partials
-
-#### Other subjects
-
-- params
-- debugging
-  - pry
-  - console in views
-  - rails console
-  - error screen
+- place raise in your code
+- byebug or pry
+- console in views
+- rails console
+- error screen
