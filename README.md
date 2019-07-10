@@ -10,6 +10,14 @@
 
 - Ideal for rapid development and CRUD operations (not so for real time app)
 
+### Rails Opinions
+
+- Optimize for programmers happiness
+- Conventions over configuration
+- Rails is omakase
+
+[Learn more about Rails' doctrine](https://rubyonrails.org/doctrine/)
+
 ### Rails Libraries
 
 - ActiveRecord -> ORM
@@ -34,7 +42,7 @@ These libraries all follow the same pattern in Rails
 A way to distribute distinct responsabilities of a web a app:
 
 - Models -> classes provide interface to the data
-- Vews -> Rendering of the UI with the data
+- Views -> Rendering of the UI with the data
 - Controllers -> respond to ressources
 
 #### Benefit
@@ -116,7 +124,7 @@ bundle install
 #### Schema
 
 - schema.rb is a representation of the db
-- you cannot modify it, this is managed by rails
+- you should not modify it, this is managed by rails
 
   ** Rails has a lot of files. Use shortcuts such as CMD|CTRL-P **
 
